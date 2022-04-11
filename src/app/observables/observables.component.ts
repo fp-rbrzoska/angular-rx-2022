@@ -52,8 +52,7 @@ export class ObservablesComponent implements OnInit {
     .pipe(
       pluck('target', 'value'),
       filter((v: any) => !v.includes('dupa')),
-      take(1),
-      first()
+      take(1), // or first()
 
       //map(ev => ev.target.value)
     )
