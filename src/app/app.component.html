@@ -1,9 +1,15 @@
+<ng-container *ngIf="user$ | async as user; else logInBtn"><div>{{ user?.fullName}} <button (click)="logOut()">Logout</button></div></ng-container>
+<ng-template #logInBtn><button (click)="logIn()">Login</button></ng-template>
 <nav>
   <a routerLink="/">Home </a>
   <a routerLink="/observables">Observables </a>
   <a routerLink="/subjects">Subjects </a>
   <a routerLink="/maps">Maps </a>
 </nav>
+<pre>
+  {{ appState$ | async | json}}
+</pre>
 <div>
   <router-outlet></router-outlet>
 </div>
+<div *ngIf="pending$ | async" class="loader">Loading</div>
